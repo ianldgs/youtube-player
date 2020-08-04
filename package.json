@@ -31,8 +31,12 @@
     "@babel/polyfill": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
     "@babel/register": "^7.10.5",
+    "@rollup/plugin-babel": "^5.1.0",
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
     "ava": "^3.11.1",
     "babel-eslint": "^10.1.0",
+    "babelrc-rollup": "^3.0.0",
     "chai": "^3.5.0",
     "eslint": "^3.19.0",
     "eslint-config-canonical": "^8.2.1",
@@ -43,6 +47,8 @@
     "flow-copy-source": "^1.1.0",
     "husky": "^0.13.3",
     "npm-watch": "^0.1.9",
+    "rollup": "^2.23.0",
+    "rollup-plugin-babel": "^4.4.0",
     "semantic-release": "^6.3.2"
   },
   "keywords": [
@@ -65,7 +71,8 @@
     "test": "{src,test}/*.js"
   },
   "scripts": {
-    "build": "NODE_ENV=production babel ./src --out-dir ./dist --copy-files && flow-copy-source src dist",
+    "babel": "NODE_ENV=production babel ./src --out-dir ./dist --copy-files && flow-copy-source src dist",
+    "build": "rollup -c",
     "lint": "eslint ./src ./test",
     "lint:fix": "eslint --fix ./src ./test",
     "watch": "npm-watch",
