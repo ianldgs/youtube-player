@@ -14,14 +14,12 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babelrc from './babel.config.json';
 
-console.log(babelrc);
-
 const config = {
   input: 'src/index.js',
   output: {
     dir: 'dist',
     name: 'youtube-player',
-    format: 'umd'
+    format: 'esm'
   },
   plugins: [resolve(), babel(babelrc), commonjs()]
 };
